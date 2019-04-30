@@ -1,0 +1,39 @@
+.banner-image-cover {
+  width: 100%;
+  background-size: cover;
+  flex-grow: 1;
+  position: relative;
+  border-radius: 4px;
+
+  .details {
+    position: absolute;
+    top: 0;
+    border-radius: 4px 0 0 4px;
+    left: 0;
+    background: linear-gradient(to right, rgba(255,255,255,.85) 65%, rgba(255,255,255,0));
+    height: calc(100% - 3rem);
+    width: calc(50% - 3rem);
+    padding: 1.5rem;
+    text-align: left;
+
+    .details-content {
+      width: 60%;
+    }
+
+    .title {
+      font-weight: 900;
+      font-size: 2rem;
+      margin: .65rem 0;
+      padding: 0;
+    }
+    .genres {
+      font-weight: 400;
+      color: rgba(0,0,0,.7);
+      font-size: .85rem;
+    }
+    .description {
+      font-size: .9rem;
+      line-height: 1.6;
+    }
+  }
+}

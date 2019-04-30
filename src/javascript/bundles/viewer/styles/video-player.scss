@@ -1,0 +1,14 @@
+.video-player {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+
+  // So that controls and stuff like that can have absolute position
+  position: relative;
+
+  .video-element {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+}

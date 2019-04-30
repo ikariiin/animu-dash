@@ -1,0 +1,61 @@
+.media-focus-card {
+  height: 27vw;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  margin: .45rem .65rem;
+  //
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 4px;
+
+  .author-details {
+    min-height: 3vw;
+    display: flex;
+    padding: .3rem .7rem;
+    align-items: center;
+
+    .time {
+      font-size: .9rem;
+      font-weight: 600;
+    }
+  }
+
+  .cover-image {
+    width: 100%;
+    flex-grow: 1;
+    background-size: cover;
+    background-position: center center;
+  }
+  .details {
+    background: transparent;
+    color: #363636;
+    padding: .3rem .7rem;
+    min-height: 4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .sub-details {
+      display: flex;
+      margin-top: .3rem;
+      font-size: .75rem;
+      font-weight: 400;
+      text-transform: capitalize;
+
+      .progress {
+        margin-right: .5rem;
+      }
+      .icon {
+        font-size: .8rem;
+        margin-right: .3rem;
+        position: relative;
+        bottom: -3px;
+      }
+    }
+
+    .name {
+      font-weight: 600;
+      font-size: .95rem;
+    }
+  }
+}

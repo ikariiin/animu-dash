@@ -1,0 +1,14 @@
+.mini-button {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: .7rem;
+  color: #121212;
+  padding: .4rem 1rem;
+  margin: 0 .5rem;
+
+  &.white {
+    color: #EDEDED;
+  }
+}

@@ -1,0 +1,4 @@
+.idea/
+temp-store/*
+dist/*
+node_modules/*

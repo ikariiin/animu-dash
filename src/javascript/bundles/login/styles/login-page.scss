@@ -1,0 +1,11 @@
+@import "../../common/styles/typography";
+
+.login-page {
+  background: url(../../../../../resources/images/pawel-czerwinski-1497854-unsplash.jpg);
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+}

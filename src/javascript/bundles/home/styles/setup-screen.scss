@@ -1,0 +1,29 @@
+.setup-screen {
+  width: 100vw;
+  height: 100vh;
+  background: url("../../../../../resources/images/setup-panel-replacement.jpg");
+  background-size: cover;
+  color: #E0E0E0;
+
+  .wrapper {
+    background: rgba(0,0,0,.5);
+    width: calc(100% - 3rem);
+    height: calc(100% - 10rem);
+    padding: 10rem 1.5rem 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1.title {
+      font-size: 3.05rem;
+      margin: 0;
+    }
+
+    .next-button {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 1;
+    }
+  }
+}

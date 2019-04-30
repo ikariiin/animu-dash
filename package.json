@@ -1,0 +1,59 @@
+{
+  "name": "animu-dash",
+  "version": "0.0.1-dev",
+  "description": "Dashboard for animu",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "start-server": "webpack-dev-server --hot --inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SaitamaSama/animu-dash.git"
+  },
+  "author": "Saitama Sama",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SaitamaSama/animu-dash/issues"
+  },
+  "homepage": "https://github.com/SaitamaSama/animu-dash#readme",
+  "dependencies": {
+    "@material-ui/icons": "^3.0.2",
+    "anitomy-js": "^3.0.1",
+    "mobx": "^5.9.4",
+    "mobx-react": "^5.4.3",
+    "moment": "^2.24.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-icons": "^3.6.1"
+  },
+  "devDependencies": {
+    "@types/electron": "^1.6.10",
+    "@types/jwt-decode": "^2.2.1",
+    "@types/node": "^11.13.6",
+    "@types/node-fetch": "^2.3.3",
+    "@types/react": "^16.8.14",
+    "@types/react-dom": "^16.8.4",
+    "ass-parser": "^0.2.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^1.0.0",
+    "electron": "^4.1.4",
+    "electron-rebuild": "^1.8.4",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jwt-decode": "^2.2.0",
+    "mobx-react-devtools": "^6.0.3",
+    "node-fetch": "^2.4.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^0.23.1",
+    "svg-inline-loader": "^0.8.0",
+    "typescript": "^3.4.4",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
+  }
+}

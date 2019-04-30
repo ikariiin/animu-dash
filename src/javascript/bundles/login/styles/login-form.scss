@@ -1,0 +1,20 @@
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  background: rgba(0,0,0,.3);
+
+  .form-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title {
+    margin: .4rem 0;
+    color: #E0E0E0;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  }
+}

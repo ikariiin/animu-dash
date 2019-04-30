@@ -1,0 +1,37 @@
+.webview-window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 4px;
+  background: #363636;
+  color: #E2E2E2;
+  display: flex;
+  flex-direction: column;
+
+  .title-bar {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    padding: .5rem 0;
+    display: flex;
+    justify-content: center;
+    background: rgba(0,0,0,.7);
+
+    .url-container {
+      background: rgba(255,255,255,.7);
+      color: #212121;
+      text-align: center;
+      width: 40%;
+      padding: .4rem 0;
+      font-size: .7rem;
+      border-radius: 22px;
+    }
+  }
+
+  .webview-element {
+    width: 100%;
+    flex-grow: 1;
+    border-radius: 0 0 4px 4px;
+  }
+}

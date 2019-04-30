@@ -1,0 +1,8 @@
+.subtitle {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  -webkit-text-stroke: 2.5px var(--outlineColor);
+}
