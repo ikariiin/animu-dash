@@ -1,15 +1,21 @@
 import * as React from 'react';
 import {IDialogue} from "../../utils/subtitle-parser";
 import "../../styles/subtitle.scss";
+import {observer} from "mobx-react";
+import {observable} from "mobx";
 
 export interface SubtitleProps extends IDialogue {
   scaling: {
     x: number;
     y: number;
   };
+  hangUp: boolean;
 }
 
+@observer
 export class Subtitle extends React.Component<SubtitleProps> {
+  @observable private margins: any = {};
+
   static getPosition(subtitle: IDialogue) {
     const style: any = {};
 
@@ -37,7 +43,7 @@ export class Subtitle extends React.Component<SubtitleProps> {
     const style: any = {};
 
     if(subtitle.style.bold) {
-      style.fontWeight = 'bold';
+      style.fontWeight = '900';
     }
     if(subtitle.style.italic) {
       style.fontStyle = 'italic';
@@ -62,7 +68,6 @@ export class Subtitle extends React.Component<SubtitleProps> {
       marginRight: Subtitle.scale(margins.marginRight, scalingFactor, 'x')
     };
   }
-
   render() {
     return (
       <section className="subtitle" style={{

@@ -7,7 +7,7 @@ import {MediaActivity, MediaFocusCard} from "../cards/media-focus-card";
 
 @observer
 export class RecentActivitySection extends React.Component<{}> {
-  static maxResults = 11;
+  static maxResults = 10;
   static query = `
     query($id: Int, $page: Int) {
       Page(perPage: ${RecentActivitySection.maxResults}, page: $page) {
@@ -59,10 +59,10 @@ export class RecentActivitySection extends React.Component<{}> {
           ...extraActivities
         ];
       } else {
-        this.recentActivity = revisedResponse.data.Page.activities;
+        this.recentActivity = revisedResponse.data.Page.activities.reverse();
       }
     } else {
-      this.recentActivity = response.data.Page.activities;
+      this.recentActivity = response.data.Page.activities.reverse();
     }
   }
 
@@ -73,8 +73,8 @@ export class RecentActivitySection extends React.Component<{}> {
   render() {
     return (
       <CardSection title="Recent Activity">
-        {this.recentActivity.length !== 0 && this.recentActivity.map(result => (
-          <MediaFocusCard {...result} key={result.id} />
+        {this.recentActivity.length !== 0 && this.recentActivity.map((result, idx) => (
+          <MediaFocusCard {...result} key={idx} />
         ))}
       </CardSection>
     )

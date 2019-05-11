@@ -1,0 +1,31 @@
+.control-anime-details {
+  display: flex;
+
+  .cover {
+    width: 180px;
+    height: 230px;
+    border-radius: 4px;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    top: - 165px;
+    left: 20px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+
+  .detail-section {
+    margin-left: 20px;
+    padding: 1rem;
+
+    .section-title {
+      font-size: .75rem;
+    }
+    .name {
+      font-weight: 700;
+    }
+    .episode {
+      font-size: .9rem;
+      font-weight: 600;
+    }
+  }
+}

@@ -2,19 +2,19 @@ import * as React from 'react';
 import {DirectoryPageProps, FetchedAnimeDetails, ParsedAnimeTitle} from "./directory-page";
 import {CardSection} from "../../common/components/card-section";
 import {observable} from "mobx";
-import {EpisodeCard} from "./episode-card";
+import {EpisodeCard, EpisodeDetails} from "./episode-card";
 import {Routes} from "../../common/routing/routing";
 // @ts-ignore
 const anitomy = window.require('anitomy-js');
-// @ts-ignore
-const {readdir} = window.require('fs').promises;
+const {readdir} = require('fs').promises;
 
 export interface EpisodeFSItem {
   parsedAnimeTitle: ParsedAnimeTitle;
   filePath: string;
 }
 export interface EpisodeSectionProps extends DirectoryPageProps {
-}
+  animeDetails: FetchedAnimeDetails|null
+};
 
 export class EpisodeSection extends React.Component<EpisodeSectionProps> {
   @observable episodesList: EpisodeFSItem[] = [];
@@ -29,7 +29,7 @@ export class EpisodeSection extends React.Component<EpisodeSectionProps> {
     })));
   }
 
-  private openEpisodeViewer(episode: EpisodeFSItem): void {
+  private openEpisodeViewer(episode: EpisodeDetails): void {
     this.props.route(Routes.VIEWER, episode);
   }
 
@@ -43,7 +43,14 @@ export class EpisodeSection extends React.Component<EpisodeSectionProps> {
         {this.episodesList.sort((a: EpisodeFSItem, b: EpisodeFSItem): number => {
           if(!a.parsedAnimeTitle.episode_number || !b.parsedAnimeTitle.episode_number) return 0;
           return parseInt(a.parsedAnimeTitle.episode_number, 10) - parseInt(b.parsedAnimeTitle.episode_number, 10);
-        }).map(episode => <EpisodeCard {...episode} onClick={(episode: EpisodeFSItem) => this.openEpisodeViewer(episode)} />)}
+        }).map(episode =>
+          <EpisodeCard
+            {...episode}
+            animeDetails={this.props.animeDetails}
+            episodesList={this.episodesList}
+            onClick={(episode: EpisodeDetails) => this.openEpisodeViewer(episode)}
+          />
+        )}
       </CardSection>
     )
   }

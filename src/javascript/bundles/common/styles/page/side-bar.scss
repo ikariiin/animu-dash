@@ -4,7 +4,7 @@
   left: 0;
   top: 0;
   height: 100vh;
-  background: #FFFFFF;
+  background: #2C2C2C;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,16 +18,16 @@
     width: 100%;
 
     &.active, &:hover {
-      background: #c3d0ff;
+      background: #292a38;
     }
     .icon {
       font-size: 1.55rem;
-      color: rgba(65, 0, 255, 1);
+      color: rgb(47, 252, 255);
     }
     .label {
       font-size: .6rem;
       font-weight: 600;
-      color: rgba(65, 0, 255, .7);
+      color: rgba(47, 252, 255, .7);
     }
   }
 }

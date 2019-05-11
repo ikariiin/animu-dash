@@ -38,7 +38,7 @@ export interface SideBarProps {
 export const SideBar: React.FunctionComponent<SideBarProps> = ({ active, route }): JSX.Element => (
   <aside className="side-bar">
     {SIDEBAR_ITEMS.map(item => (
-      <div className={`item ${active === item.name && 'active'}`} onClick={() => active !== item.name && item.route && route(item.route)}>
+      <div className={`item ${active === item.name && 'active'}`} key={item.name} onClick={() => active !== item.name && item.route && route(item.route)}>
         <div className="icon">{item.icon}</div>
         <div className="label">{item.name}</div>
       </div>

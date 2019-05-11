@@ -1,0 +1,49 @@
+.inactive-overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.7);
+  z-index: 50;
+  position: absolute;
+
+  .overlay-content {
+    margin: 8rem 2rem 8rem 6rem;
+    color: #ECECEC;
+    display: flex;
+
+    .cover-container {
+      .cover {
+        border-radius: 4px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      }
+    }
+
+    .text {
+      margin-left: 1.5rem;
+      max-width: 50%;
+
+      .title {
+        font-weight: 900;
+        font-size: 4rem;
+      }
+      .ep-details {
+        font-weight: 700;
+        font-size: 2.5rem;
+      }
+      .description {
+        margin-top: 1.3rem;
+      }
+    }
+
+    .characters {
+      margin-left: 1.75rem;
+
+      .title {
+        font-weight: 900;
+        font-size: 2rem;
+        margin-top: 1.25rem;
+      }
+    }
+  }
+}

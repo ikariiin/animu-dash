@@ -1,6 +1,5 @@
 .episode-card {
-  background: #FFFFFF;
-  border: 1px solid rgba(0,0,0,.1);
+  background: #363636;
   margin: .6rem .5rem;
   display: flex;
   flex-direction: column;
@@ -9,7 +8,7 @@
   transition: all 200ms ease-in;
 
   &:hover {
-    background: #c3d0ff;
+    background: rgba(47, 252, 255, .6);
     border-color: transparent;
     transform: translateY(-.7rem);
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
@@ -21,14 +20,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #000000;
+    background-color: #272727;
     border-radius: 4px 4px 0 0;
     cursor: pointer;
 
     .play-button {
       font-size: 2.2rem;
       position: relative;
-      color: #8b84ff;
+      color: rgba(47, 252, 255, .6);
       width: 64px;
       height: 64px;
       border: none;

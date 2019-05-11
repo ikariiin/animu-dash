@@ -2,9 +2,17 @@ import * as React from 'react';
 import {EpisodeFSItem} from "./episode-section";
 import {IoIosPlay} from 'react-icons/io';
 import "../styles/episode-card.scss";
+import {FetchedAnimeDetails} from "./directory-page";
+
+export interface EpisodeDetails extends EpisodeFSItem {
+  animeDetails: FetchedAnimeDetails|null;
+  episodesList: EpisodeFSItem[]
+}
 
 export interface EpisodeCardProps extends EpisodeFSItem {
-  onClick?: (episode: EpisodeFSItem) => void;
+  onClick?: (episode: EpisodeDetails) => void;
+  animeDetails: FetchedAnimeDetails|null;
+  episodesList: EpisodeFSItem[]
 }
 
 export class EpisodeCard extends React.Component<EpisodeCardProps> {
@@ -13,7 +21,9 @@ export class EpisodeCard extends React.Component<EpisodeCardProps> {
       <section className="episode-card">
         <div className="thumbnail" onClick={() => this.props.onClick && this.props.onClick({
           parsedAnimeTitle: this.props.parsedAnimeTitle,
-          filePath: this.props.filePath
+          filePath: this.props.filePath,
+          animeDetails: this.props.animeDetails,
+          episodesList: this.props.episodesList
         })}>
           <button className="play-button" onClick={() => {}}>
             <IoIosPlay />

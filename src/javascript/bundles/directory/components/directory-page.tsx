@@ -114,7 +114,7 @@ export class DirectoryPage extends React.Component<DirectoryPageProps> {
         <Banner>
           {this.renderWhenParsedAndLoaded}
         </Banner>
-        <EpisodeSection {...this.props} />
+        <EpisodeSection {...this.props} animeDetails={this.animeDetails} />
       </Page>
     )
   }

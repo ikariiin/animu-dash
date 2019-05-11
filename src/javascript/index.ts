@@ -6,7 +6,8 @@ function createWindow(): BrowserWindow {
     height: 850,
     frame: false,
     webPreferences: {
-      webSecurity: false
+      webSecurity: false,
+      nodeIntegration: true
     }
   });
   window.loadURL("http://localhost:8080");

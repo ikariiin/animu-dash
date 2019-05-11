@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {Page, PageProps} from "../../common/components/page";
-import {EpisodeFSItem} from "../../directory/components/episode-section";
 import {VideoPlayer} from "./video/video-player";
 import {VideoControls} from "./video/video-controls";
+import {EpisodeDetails} from "../../directory/components/episode-card";
 
-export interface ViewerPageProps extends PageProps, EpisodeFSItem {
+export interface ViewerPageProps extends PageProps, EpisodeDetails {
 }
 
 export class ViewerPage extends React.Component<ViewerPageProps> {
@@ -19,7 +19,11 @@ export class ViewerPage extends React.Component<ViewerPageProps> {
     return (
       <Page {...this.props} hideSearchBar>
         <VideoPlayer {...this.props}>
-          <VideoControls />
+          <VideoControls
+            hoverState={false}
+            episodeDetails={this.props.parsedAnimeTitle}
+            animeDetails={this.props.animeDetails}
+          />
         </VideoPlayer>
       </Page>
     )

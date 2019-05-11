@@ -54,11 +54,11 @@ export class LibrarySection extends React.Component<LibrarySectionProps> {
 
   @computed get renderCardsWhenLoaded() {
     if(this.expanded) return this.libraryDirs.map(dir => (
-      <DirectoryCard onClick={(dir: IndexedDir) => this.openDirectory(dir)} dir={dir.dir} name={dir.name} />
+      <DirectoryCard onClick={(dir: IndexedDir) => this.openDirectory(dir)} dir={dir.dir} key={dir.dir} name={dir.name} />
     ));
 
     return this.libraryDirs.slice(0, 8).map(dir => (
-      <DirectoryCard onClick={(dir: IndexedDir) => this.openDirectory(dir)} dir={dir.dir} name={dir.name} />
+      <DirectoryCard onClick={(dir: IndexedDir) => this.openDirectory(dir)} dir={dir.dir} key={dir.dir} name={dir.name} />
     ));
   }
 

@@ -1,2 +1,7 @@
 .subtitle-container {
+  &.hang-up {
+    .subtitle {
+      padding-bottom: 60px;
+    }
+  }
 }

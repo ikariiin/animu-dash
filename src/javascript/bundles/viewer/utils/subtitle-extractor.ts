@@ -25,7 +25,7 @@ export class SubtitleExtractor {
   private readonly filename: string;
 
   public constructor(filename: string) {
-    this.filename = filename.replace(/\//g, '\\');
+    this.filename = filename;
   }
 
   private generateOutPath() {

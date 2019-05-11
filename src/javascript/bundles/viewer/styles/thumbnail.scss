@@ -1,0 +1,7 @@
+.thumbnail {
+  // Default dimensions for thumbnails.
+  // Different impls are expected to define their custom sizing.
+  width: 240px;
+  height: 135px;
+  background-color: #2C2C2C;
+}

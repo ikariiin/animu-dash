@@ -1,0 +1,44 @@
+.progress-container {
+  flex-grow: 1;
+  margin: 0 1rem;
+  display: flex;
+
+  input[type=range].video-progress {
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 5px 0;
+    background: transparent;
+  }
+  input[type=range].video-progress:focus {
+    outline: none;
+  }
+  input[type=range].video-progress::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: #FA5BAC;
+    border-radius: 3px;
+  }
+  input[type=range].video-progress::-webkit-slider-thumb {
+    border: 0px solid rgba(0, 0, 0, 0);
+    height: 14px;
+    width: 14px;
+    border-radius: 14px;
+    background: rgba(64, 0, 255, 1);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -5px;
+  }
+  input[type=range].video-progress:focus::-webkit-slider-runnable-track {
+    background: #FA5BAC;
+  }
+
+  .duration-time {
+    font-weight: 600;
+    font-size: .9rem;
+    color: #FFFFFF;
+    margin: 0 .75rem;
+    width: 40px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,29 @@
+.next-video-hint {
+  z-index: 10000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  background: rgba(0,0,0,.7);
+  padding: 1.5rem .75rem;
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+
+  .next-video-details {
+    margin-left: 1rem;
+
+    .heading {
+      font-weight: 900;
+      font-size: 3rem;
+    }
+    .name {
+      font-weight: 900;
+      font-size: 1.85rem;
+    }
+    .episode {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+  }
+}

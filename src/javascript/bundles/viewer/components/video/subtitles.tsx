@@ -10,6 +10,7 @@ import "../../styles/subtitles.scss";
 export interface SubtitlesProps {
   subtitleFilePath: string;
   videoRef: React.RefObject<HTMLVideoElement>;
+  hoverState: boolean;
 }
 
 @observer
@@ -73,8 +74,8 @@ export class Subtitles extends React.Component<SubtitlesProps> {
 
   render() {
     return (
-      <section className="subtitle-container">
-        {this.visibleSubtitles.map(dialogue => <Subtitle {...dialogue} scaling={this.subtitles!.scalingInfo} />)}
+      <section className={`subtitle-container ${this.props.hoverState ? 'hang-up' : ''}`}>
+        {this.visibleSubtitles.map((dialogue, idx) => <Subtitle hangUp={this.props.hoverState} key={idx} {...dialogue} scaling={this.subtitles!.scalingInfo} />)}
       </section>
     )
   }
