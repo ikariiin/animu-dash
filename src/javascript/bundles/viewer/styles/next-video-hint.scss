@@ -1,29 +1,47 @@
 .next-video-hint {
   z-index: 10000;
   position: absolute;
-  top: 0;
-  left: 0;
+  bottom: 6rem;
+  right: 1rem;
   width: 60%;
-  background: rgba(0,0,0,.7);
+  background: rgba(0,0,0,.4);
   padding: 1.5rem .75rem;
   height: 250px;
   display: flex;
   flex-direction: row;
+  border-radius: 8px;
+
+  .video-thumbnail {
+    height: 100%;
+    width: 50%;
+    min-width: 50%;
+    margin-right: .75rem;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
 
   .next-video-details {
     margin-left: 1rem;
+    flex-grow: 1;
 
     .heading {
-      font-weight: 900;
-      font-size: 3rem;
+      font-weight: 700;
+      font-size: 1.85rem;
     }
     .name {
       font-weight: 900;
-      font-size: 1.85rem;
+      font-size: 2.85rem;
     }
     .episode {
       font-size: 1.2rem;
       font-weight: 700;
+    }
+    .misc-details {
+      margin-top: .25rem;
+      font-weight: 300;
     }
   }
 }

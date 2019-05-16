@@ -1,0 +1,41 @@
+.anime-stats {
+  width: calc(100% - 2rem);
+  padding: 1rem;
+
+  .title {
+    font-weight: 700;
+    font-size: 1.85rem;
+    padding: 0 .5rem;
+    margin-bottom: .75rem;
+  }
+
+  .col-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.8fr;
+
+    .column {
+      margin: 0 .75rem;
+
+      .col-title {
+        font-size: 1.15rem;
+        font-weight: 600;
+      }
+
+      .info-point {
+        font-size: .85rem;
+        font-weight: 300;
+        color: rgba(255,255,255,.6);
+        margin: .5rem 0;
+
+        .important {
+          font-weight: 600;
+          color: rgba(255,255,255,.8);
+        }
+      }
+    }
+  }
+}
+
+.anime-stats-banner {
+  min-height: auto !important;
+}

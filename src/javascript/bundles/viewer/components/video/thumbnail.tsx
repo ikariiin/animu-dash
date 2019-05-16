@@ -7,6 +7,7 @@ export interface ThumbnailProps {
   file: string;
   className?: string;
   children?: any;
+  onClick?: (ev: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
 @observer
@@ -23,10 +24,10 @@ export class Thumbnail extends React.Component<ThumbnailProps> {
   }
 
   render() {
-    if(!this.thumbnailURI) return null;
+    if(!this.thumbnailURI) return "loading";
 
     return (
-      <div className={`thumbnail ${this.props.className}`}>
+      <div className={`thumbnail ${this.props.className}`} onClick={this.props.onClick} style={{ backgroundImage: `url(${this.thumbnailURI})` }}>
         {this.props.children}
       </div>
     )

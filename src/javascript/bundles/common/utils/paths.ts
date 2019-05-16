@@ -10,5 +10,6 @@ export const paths = {
   },
   ffmpeg: currentPlatform === "win32" ? join(remote.app.getAppPath(),  "/resources/bundled/ffmpeg.exe") : "ffmpeg",
   ffprobe: currentPlatform === "win32" ? join(remote.app.getAppPath(), "/resources/bundled/ffprobe.exe") : "ffprobe",
-  tempStore: join(remote.app.getAppPath(), "/temp-store")
+  tempStore: join(remote.app.getAppPath(), "/temp-store"),
+  store: join(remote.app.getAppPath(), "/store")
 };

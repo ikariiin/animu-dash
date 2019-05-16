@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {EpisodeFSItem} from "./episode-section";
-import {IoIosPlay} from 'react-icons/io';
 import "../styles/episode-card.scss";
 import {FetchedAnimeDetails} from "./directory-page";
+import {PlayButton} from "../../common/components/play-button";
+import {Thumbnail} from "../../viewer/components/video/thumbnail";
 
 export interface EpisodeDetails extends EpisodeFSItem {
   animeDetails: FetchedAnimeDetails|null;
@@ -19,16 +20,14 @@ export class EpisodeCard extends React.Component<EpisodeCardProps> {
   render() {
     return (
       <section className="episode-card">
-        <div className="thumbnail" onClick={() => this.props.onClick && this.props.onClick({
+        <Thumbnail file={this.props.filePath} className="thumbnail" onClick={() => this.props.onClick && this.props.onClick({
           parsedAnimeTitle: this.props.parsedAnimeTitle,
           filePath: this.props.filePath,
           animeDetails: this.props.animeDetails,
           episodesList: this.props.episodesList
         })}>
-          <button className="play-button" onClick={() => {}}>
-            <IoIosPlay />
-          </button>
-        </div>
+          <PlayButton />
+        </Thumbnail>
         <section className="details">
           <section className="episode-number">Episode {this.props.parsedAnimeTitle.episode_number}</section>
         </section>

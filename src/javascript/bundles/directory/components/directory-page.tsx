@@ -9,6 +9,7 @@ import {anilistQuery} from "../../common/utils/anilist-query";
 import "../styles/directory-page.scss";
 import {trimIfRequired} from "../../home/components/cards/media-focus-card";
 import {EpisodeSection} from "./episode-section";
+import {AnimeStats} from "./anime-stats";
 // @ts-ignore
 const anitomy = window.require('anitomy-js');
 
@@ -114,6 +115,7 @@ export class DirectoryPage extends React.Component<DirectoryPageProps> {
         <Banner>
           {this.renderWhenParsedAndLoaded}
         </Banner>
+        {this.animeDetails && <AnimeStats {...this.animeDetails} />}
         <EpisodeSection {...this.props} animeDetails={this.animeDetails} />
       </Page>
     )

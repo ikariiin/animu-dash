@@ -1,4 +1,5 @@
 import { BrowserWindow, app } from 'electron';
+import {fork} from 'child_process';
 
 function createWindow(): BrowserWindow {
   const window = new BrowserWindow({
@@ -15,4 +16,12 @@ function createWindow(): BrowserWindow {
   return window;
 }
 
-app.on('ready', createWindow);
+function generator() {
+  const generator = fork(__dirname + "/host/generator.js");
+}
+
+app.on('ready', () => {
+  createWindow();
+});
+
+generator();

@@ -30,10 +30,12 @@
   "devDependencies": {
     "@types/electron": "^1.6.10",
     "@types/jwt-decode": "^2.2.1",
+    "@types/lodash": "^4.14.129",
     "@types/node": "^11.13.6",
     "@types/node-fetch": "^2.3.3",
     "@types/react": "^16.8.14",
     "@types/react-dom": "^16.8.4",
+    "@types/worker-threads-pool": "^2.0.0",
     "ass-parser": "^0.2.0",
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^1.0.0",
@@ -43,6 +45,7 @@
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "jwt-decode": "^2.2.0",
+    "lodash": "^4.17.11",
     "mobx-react-devtools": "^6.0.3",
     "node-fetch": "^2.4.0",
     "node-sass": "^4.12.0",
@@ -54,6 +57,7 @@
     "typescript": "^3.4.4",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.2.1"
+    "webpack-dev-server": "^3.2.1",
+    "worker-threads-pool": "^2.0.0"
   }
 }

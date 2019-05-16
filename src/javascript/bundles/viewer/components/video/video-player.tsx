@@ -9,10 +9,12 @@ import {InactiveOverlay} from "./inactive-overlay";
 import {AnilistManager} from "../../../anilist/anilist-manager";
 import {EpisodeDetails} from "../../../directory/components/episode-card";
 import {EpisodeFSItem} from "../../../directory/components/episode-section";
-import Timeout = NodeJS.Timeout;
 import {NextVideoHint} from "../next-video-hint";
+import {PageProps} from "../../../common/components/page";
+import {Routes} from "../../../common/routing/routing";
+import Timeout = NodeJS.Timeout;
 
-export interface VideoPlayerProps extends EpisodeDetails {
+export interface VideoPlayerProps extends EpisodeDetails, PageProps {
   children?: any;
 }
 
@@ -67,6 +69,17 @@ export class VideoPlayer extends React.Component<VideoPlayerProps> {
     this.showNextVideoHint = this.props.episodesList[currentIndex + 1];
   }
 
+  private skipToNextEpisode(): void {
+    if(!this.showNextVideoHint) return;
+
+    this.props.route(Routes.VIEWER, {
+      parsedAnimeTitle: this.showNextVideoHint.parsedAnimeTitle,
+      filePath: this.showNextVideoHint.filePath,
+      animeDetails: this.props.animeDetails,
+      episodesList: this.props.episodesList
+    });
+  }
+
   private async addBindingsForAnilist() {
     this.anilistManager = new AnilistManager(this.props);
     await this.anilistManager.markAsWatching();
@@ -74,13 +87,36 @@ export class VideoPlayer extends React.Component<VideoPlayerProps> {
     if(!this.videoRef.current) return;
     this.videoRef.current.addEventListener('timeupdate', () => {
       if(!this.videoRef.current) return;
+
       if((this.videoRef.current.duration - this.videoRef.current.currentTime) <= 120) {
-        if(this.markedAsWatched) return;
-        this.anilistManager!.editProgress(+this.props.parsedAnimeTitle.episode_number!);
+        if(this.markedAsWatched || !this.anilistManager) return;
+        this.anilistManager.editProgress(+this.props.parsedAnimeTitle.episode_number!);
         this.markedAsWatched = true;
         this.displayHintForNextEpisode();
       }
     });
+  }
+
+  private refreshPlayer(): void {
+    this.subsPath = null;
+    this.videoRef = React.createRef<HTMLVideoElement>();
+    this.hoverState = false;
+    this.showOverlay = false;
+    this.markedAsWatched = false;
+    this.showNextVideoHint = null;
+    this.anilistManager = null;
+    this.hoverStateTimeout = null;
+    this.showOverlayTimeout = null;
+
+    this.addBindingsForAnilist();
+    this.extractSubtitles();
+    this.attachVideoBinding();
+  }
+
+  componentDidUpdate(prevProps: Readonly<VideoPlayerProps>, prevState: Readonly<{}>, snapshot?: any): void {
+    if(this.props.filePath !== prevProps.filePath) {
+      this.refreshPlayer();
+    }
   }
 
   componentDidMount(): void {
@@ -107,7 +143,12 @@ export class VideoPlayer extends React.Component<VideoPlayerProps> {
           src={`file://${this.props.filePath}`}
           controls={false} />
         {this.showOverlay && !this.showNextVideoHint && <InactiveOverlay episodeDetails={this.props} />}
-        {this.showNextVideoHint && <NextVideoHint {...this.showNextVideoHint} details={this.props.animeDetails} />}
+        {this.showNextVideoHint && <NextVideoHint {...this.showNextVideoHint} details={this.props.animeDetails} pageParams={{
+          parsedAnimeTitle: this.showNextVideoHint.parsedAnimeTitle,
+          filePath: this.showNextVideoHint.filePath,
+          animeDetails: this.props.animeDetails,
+          episodesList: this.props.episodesList
+        }} route={this.props.route} timeBeforeSkip={Math.floor(this.videoRef.current!.duration - this.videoRef.current!.currentTime)} />}
         {this.subsPath && <Subtitles videoRef={this.videoRef} hoverState={this.hoverState} subtitleFilePath={this.subsPath} />}
         {React.cloneElement(this.props.children, {videoRef: this.videoRef, hoverState: this.hoverState})}
       </section>

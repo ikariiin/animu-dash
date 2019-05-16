@@ -49,8 +49,8 @@ export class AnilistManager {
   public async markAsWatching(): Promise<void> {
     const animeStatus = await this.getAnimeStatus();
     const query = `
-      mutation($id: Int, $status: MediaListStatus) {
-        SaveMediaListEntry (id: $id,  status: $status) {
+      mutation($id: Int, $mediaId: Int, $status: MediaListStatus) {
+        SaveMediaListEntry (id: $id, mediaId: $mediaId  status: $status) {
           status
         }
       }
@@ -63,15 +63,15 @@ export class AnilistManager {
       }
     `;
 
+    if(!animeStatus) {
+      await anilistQuery(query, {
+        mediaId: '' + this.episodeDetails.animeDetails!.id,
+        status: "CURRENT"
+      });
+      return;
+    }
+
     switch (animeStatus.status) {
-      case "PLANNING":
-      case "DROPPED":
-      case "PAUSED":
-        await anilistQuery(query, {
-          id: '' + animeStatus.id,
-          status: "CURRENT"
-        });
-        break;
       case "COMPLETED":
         await anilistQuery(rewatchQuery, {
           id: '' + animeStatus.id,
@@ -82,6 +82,15 @@ export class AnilistManager {
       case "CURRENT":
       case "REPEATING":
         // Do nothing.
+        break;
+      case "PLANNING":
+      case "DROPPED":
+      case "PAUSED":
+      default:
+        await anilistQuery(query, {
+          id: '' + animeStatus.id,
+          status: "CURRENT"
+        });
         break;
     }
   }

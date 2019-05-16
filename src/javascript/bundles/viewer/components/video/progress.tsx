@@ -49,7 +49,7 @@ export class Progress extends React.Component<ProgressProps> {
       <section className="progress-container">
         <time className="duration-time">{utc(this.currentTime * 1000).format(this.duration > 3600 ? 'HH:mm:ss' : 'mm:ss')}</time>
         <input type="range" className="video-progress" min={0} max={1} value={this.currentTime / this.duration} step={0.00001} onChange={(ev) => this.seek(ev)} />
-        <time className="duration-time">{utc(this.duration * 1000).format(this.duration > 3600 ? 'HH:mm:ss' : 'mm:ss')}</time>
+        <time className="duration-time">-{utc((this.duration - this.currentTime) * 1000).format(this.duration > 3600 ? 'HH:mm:ss' : 'mm:ss')}</time>
       </section>
     )
   }
