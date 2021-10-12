@@ -39,7 +39,7 @@
     "ass-parser": "^0.2.0",
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^1.0.0",
-    "electron": "^7.2.4",
+    "electron": "^11.5.0",
     "electron-rebuild": "^1.8.4",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^2.0.0",
