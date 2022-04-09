@@ -22,7 +22,7 @@
     "anitomy-js": "^3.0.1",
     "mobx": "^5.9.4",
     "mobx-react": "^5.4.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-icons": "^3.6.1"
